@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class RecipesComponent implements OnInit {
   recipeToDisplay: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor() { }
 
   ngOnInit() {
   }
