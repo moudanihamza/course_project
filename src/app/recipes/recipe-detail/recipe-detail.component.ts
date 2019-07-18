@@ -19,12 +19,15 @@ export class RecipeDetailComponent implements OnInit {
         this.id = +params.id;
         this.recipe = this.recipeService.getRecipe(this.id);
       }
-    )
+    );
   }
 
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
     this.router.navigate(['/shoppingList']);
   }
-
+  onDelete() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['../'], {relativeTo: this.activatedRoute});
+  }
 }
