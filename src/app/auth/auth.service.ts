@@ -6,7 +6,7 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class AuthService {
-  token = '';
+  token = null;
   constructor(private router: Router) { }
 
   signUpUser(email: string, password: string) {

@@ -9,6 +9,7 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import { StartRecipeComponent } from './start-recipe/start-recipe.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuardService } from '../auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RecipesRoutingModule,
     SharedModule
+  ],
+  providers: [
+    AuthGuardService
   ]
 })
 export class RecipesModule { }
