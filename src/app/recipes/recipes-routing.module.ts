@@ -9,9 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
-    path: 'recipes', component: RecipesComponent, children: [
+    path: '', component: RecipesComponent, children: [
       { path: '', component: StartRecipeComponent },
       { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService] },
       { path: ':id', component: RecipeDetailComponent },

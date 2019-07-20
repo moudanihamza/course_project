@@ -1,14 +1,19 @@
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'shoppingList', component: ShoppingListComponent }
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: 'recipes',
+    loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule)
+  },
+  {
+    path: 'shoppingList',
+    loadChildren: () => import('./shopping-list/shopping-list.module').then(m => m.ShoppingListModule)
+  }
 ];
 @NgModule({
   declarations: [],
