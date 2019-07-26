@@ -1,12 +1,10 @@
+import * as ShoppingListActions from './../shopping-list/store/shopping-list-actions';
 import { Subject } from 'rxjs';
-import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from './../shared/ingredient.model';
 import { Recipe } from './recipe.model';
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe('a recipe test', 'this is a simply test', 'https://s3.amazonaws.com/finecooking.s3.tauntonclud.com' +
@@ -19,7 +17,11 @@ export class RecipeService {
 
   recipesChange = new Subject <Recipe[]> ();
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private store: Store<{
+    shoppingList: {
+      ingredients: Ingredient[]
+    }
+  }>) { }
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
@@ -28,7 +30,7 @@ export class RecipeService {
     return this.recipes[id];
   }
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.shoppingListService.addIngredients(ingredients);
+    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
   }
   addRecipe(newRecipe: Recipe) {
     this.recipes.push(newRecipe);

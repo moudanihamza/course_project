@@ -14,22 +14,13 @@ export class ShoppingListService {
   startedEditing = new Subject<number>();
   constructor() { }
 
-  getIngredients(): Ingredient[] {
-    return this.ingredients.slice();
-  }
 
   getIngredient(index: number): Ingredient {
     return this.ingredients[index];
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientAdded.next(this.ingredients.slice());
-   }
-
    addIngredients( ingredients: Ingredient[]) {
-       this.ingredients.push(...ingredients);
-       this.ingredientAdded.next(this.ingredients.slice());
+      
    }
    updateIngedient(index: number, newIngredient: Ingredient) {
      this.ingredients[index] = newIngredient;
