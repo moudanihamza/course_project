@@ -1,0 +1,89 @@
+[33mcommit 4ae2557e0021099144cb994eebdc0b3da6b880a6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Fri Jul 26 19:50:08 2019 +0100
+
+    use redux instead of services in progress
+
+[33mcommit eac6c39d48df6072dc2bc886dfabb88b0bc24e0d[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Sun Jul 21 20:10:26 2019 +0100
+
+    httpclient bonus (progress,headers,httpParams,httpRequest,interceptors)
+
+[33mcommit 6c5196d4ccd1e7aae11288b43556b8d285e82ab9[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Sat Jul 20 17:52:55 2019 +0100
+
+    enable preloading lazy loaded routes
+
+[33mcommit 12168562bf29e251c04287cfa6f152d7fef904c1[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Sat Jul 20 17:45:17 2019 +0100
+
+    restructuring service & use core module & child injector
+
+[33mcommit 05f8ae9d519522d8b71852e36f4ef20f80760fed[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Sat Jul 20 17:09:43 2019 +0100
+
+    use lazy loading
+
+[33mcommit 63b5fee37b1a390044807c945c20c81d93cb2977[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Sat Jul 20 16:22:16 2019 +0100
+
+    use modules for each feature
+
+[33mcommit 66b5d2aeab7a1fe87f3753be27a40bd3e00bc891[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Fri Jul 19 14:51:32 2019 +0100
+
+     authentication & route protection & firebase sdk done
+
+[33mcommit 5af583924936cd2a85de18502be7a81c41ef3ee8[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Fri Jul 19 12:08:21 2019 +0100
+
+    http & firebase added
+
+[33mcommit 3e1c2b004a2490c7fc8a7917b737e177f21fa3cc[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Thu Jul 18 13:52:37 2019 +0100
+
+    form done
+
+[33mcommit 9ea9088c012d33a9ff4eac9aee8b0b2d0064c81c[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Tue Jul 16 14:34:52 2019 +0100
+
+    use subject instead of eventEmitter
+
+[33mcommit 8559771bc18ae0f33ecbf40c308efa666be63ad8[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Tue Jul 16 14:24:26 2019 +0100
+
+    routes done
+
+[33mcommit c892bd42851974eb8d157305bc92701ee39c98d8[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Wed Jul 10 17:29:12 2019 +0100
+
+    directive & service in deep dives done
+
+[33mcommit 2700bee3e7e1c5228aef948cc2572113477d8c81[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Wed Jul 10 17:16:11 2019 +0100
+
+    directive & service in deep dives done
+
+[33mcommit a2209978fcd414023f22e484629ffd9d99a3fbcf[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Mon Jul 8 17:52:30 2019 +0100
+
+    component in div done
+
+[33mcommit 7cc9e80c41e180e79409b65579c8bbcf839e796e[m
+Author: Hamza Moudani <hamza.moudani1@ibm.com>
+Date:   Wed Jul 3 09:54:45 2019 +0100
+
+    initial commit

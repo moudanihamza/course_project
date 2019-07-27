@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from '../app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { RecipeService } from '../recipes/recipe.service';
 import { DataStorageService } from '../shared/data-storage.service';
 import { AuthService } from '../auth/auth.service';
@@ -28,7 +27,6 @@ import { AuthService } from '../auth/auth.service';
     RoutingModule
   ],
   providers: [
-    ShoppingListService,
     RecipeService,
     DataStorageService,
     AuthService,

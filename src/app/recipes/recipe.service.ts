@@ -1,8 +1,7 @@
-import * as ShoppingListActions from './../shopping-list/store/shopping-list-actions';
+
 import { Subject } from 'rxjs';
 import { Ingredient } from './../shared/ingredient.model';
 import { Recipe } from './recipe.model';
-import { Store } from '@ngrx/store';
 
 
 export class RecipeService {
@@ -17,11 +16,7 @@ export class RecipeService {
 
   recipesChange = new Subject <Recipe[]> ();
 
-  constructor(private store: Store<{
-    shoppingList: {
-      ingredients: Ingredient[]
-    }
-  }>) { }
+  constructor() { }
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
@@ -29,9 +24,7 @@ export class RecipeService {
   getRecipe(id: number): Recipe {
     return this.recipes[id];
   }
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
-  }
+
   addRecipe(newRecipe: Recipe) {
     this.recipes.push(newRecipe);
     this.recipesChange.next(this.recipes.slice());
