@@ -7,8 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from '../app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RecipeService } from '../recipes/recipe.service';
-import { DataStorageService } from '../shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -26,8 +24,6 @@ import { DataStorageService } from '../shared/data-storage.service';
     RoutingModule
   ],
   providers: [
-    RecipeService,
-    DataStorageService,
     {provide: HTTP_INTERCEPTORS, useClass: LogginInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]

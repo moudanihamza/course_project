@@ -1,11 +1,11 @@
-import { RecipeService } from './../recipe.service';
 import { Component, OnInit, } from '@angular/core';
-import { Recipe } from '../recipe.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {  Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions';
-
-import * as fromApp from '../../store/app.reducers';
+import * as fromRecipe from '../store/recipe.reducers';
+import * as fromRecipeActions from '../store/recipe.actions';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,26 +13,32 @@ import * as fromApp from '../../store/app.reducers';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  recipe: Recipe;
+  recipe: Observable<fromRecipe.State>;
   id: number;
-  constructor(private recipeService: RecipeService, private activatedRoute: ActivatedRoute, private router: Router,
-    private store: Store<fromApp.AppState>) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,
+    private store: Store<fromRecipe.FeatureState>) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.id = +params.id;
-        this.recipe = this.recipeService.getRecipe(this.id);
+        this.recipe = this.store.select('recipes');
       }
     );
   }
 
   onAddToShoppingList() {
-    this.store.dispatch(new ShoppingListActions.AddIngredients(this.recipe.ingredients));
+    this.store.select('recipes').pipe(take(1)).subscribe(
+      (recipeState: fromRecipe.State) => {
+        this.store.dispatch(new ShoppingListActions.AddIngredients(
+          recipeState.recipes[this.id].ingredients
+        ));
+      }
+    )
     this.router.navigate(['/shoppingList']);
   }
   onDelete() {
-    this.recipeService.deleteRecipe(this.id);
+    this.store.dispatch(new fromRecipeActions.DeleteRecipe(this.id) );
     this.router.navigate(['../'], { relativeTo: this.activatedRoute });
   }
 }

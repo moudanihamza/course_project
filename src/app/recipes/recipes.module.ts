@@ -10,6 +10,10 @@ import { StartRecipeComponent } from './start-recipe/start-recipe.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from '../auth/auth-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { recipeReducer } from './store/recipe.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { RecipeEffects } from './store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { AuthGuardService } from '../auth/auth-guard.service';
     CommonModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature('recipes', recipeReducer),
+    EffectsModule.forFeature([RecipeEffects])
   ],
   providers: [
     AuthGuardService

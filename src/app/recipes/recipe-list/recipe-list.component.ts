@@ -1,34 +1,29 @@
-import { Subscription } from 'rxjs';
-import { RecipeService } from './../recipe.service';
-import { Recipe } from './../recipe.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {  Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromRecipe from '../store/recipe.reducers';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit, OnDestroy {
-  recipes: Recipe [];
-  subscription: Subscription;
+export class RecipeListComponent implements OnInit {
 
-  constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute ) {
-    this.recipes = this.recipeService.getRecipes();
-   }
+  recipes: Observable<fromRecipe.State>;
+
+
+  constructor(private store: Store<fromRecipe.FeatureState>, private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    this.subscription = this.recipeService.recipesChange.subscribe(
-      (recipes: Recipe []) => this.recipes = recipes
-    );
+    this.recipes = this.store.select('recipes');
   }
   onNewRecipe() {
-      this.router.navigate(['new'], {relativeTo: this.activatedRoute} );
+    this.router.navigate(['new'], { relativeTo: this.activatedRoute });
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
 
 
 }
