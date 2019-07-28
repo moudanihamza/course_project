@@ -9,7 +9,6 @@ import { RoutingModule } from '../app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { AuthService } from '../auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { AuthService } from '../auth/auth.service';
   providers: [
     RecipeService,
     DataStorageService,
-    AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: LogginInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
