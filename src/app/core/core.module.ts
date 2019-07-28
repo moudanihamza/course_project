@@ -19,7 +19,7 @@ import { DataStorageService } from '../shared/data-storage.service';
     CommonModule,
     SharedModule,
     RoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,

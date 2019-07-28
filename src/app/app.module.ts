@@ -8,6 +8,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth/auth.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { AuthEffects } from './auth/auth.effects';
     CoreModule,
     ShoppingListModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects]),
+    StoreRouterConnectingModule.forRoot(),
+    environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   bootstrap: [AppComponent]
 })
